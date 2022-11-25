@@ -1,0 +1,42 @@
+@import './../../style/vars.scss';
+
+.table {
+    display: grid;
+    max-width: 80%;
+    margin: 50px auto;
+    padding: 0 5%;
+
+    background-color: $bg-color-table;
+    border-radius: 3%;
+    border: 1px solid $border-color-table;
+
+    &__word {
+        padding: 20px;
+
+        color: $font-color;
+    }
+
+    &__title {
+        padding: 20px;
+
+        font-weight: bolder;
+        color: $main-color;
+    }
+
+    &__string {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        border-bottom: 1px dotted $border-color-table;
+
+        &:first-child {
+            border-bottom: 1px solid $font-color;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}

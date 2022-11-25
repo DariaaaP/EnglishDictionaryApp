@@ -1,0 +1,68 @@
+@import './../../style/vars.scss';
+
+.btn {
+    width: 35%;
+
+    background: $bg-color-btn;
+    border-radius: 45px;
+    box-shadow: 0 8px 15px $btn-color-shadow;
+    transition: .3s;
+
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 250%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: $main-color;
+
+    &:hover {
+        background: $main-color;
+        box-shadow: 0 15px 20px #fe66375c;
+        transform: translateY(-3px);
+
+        color: $bg-color-btn;
+    }
+}
+
+.btn_add {
+    position: relative;
+    width: 25%;
+    margin: 3% auto;
+    padding: 10px 30px;
+
+    cursor: pointer;
+    background: $bg-color-btn;
+    box-shadow: 0 8px 15px $btn-color-shadow;
+    border-radius: 45px;
+    transition: .2s ease-in-out;
+
+    text-decoration: none;
+    overflow: hidden;
+    color: $main-color;
+
+    &:before {
+        content: "";
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        top: -8px;
+        left: -75px;
+        transform: skewX(-45deg);
+
+        background: linear-gradient(90deg, #ffffff1a, #ffffff80);
+    }
+
+    &:hover {
+        background: $main-color;
+
+        color: $bg-color-btn;
+    }
+
+    &:hover:before {
+        left: 150px;
+
+        transition: .5s ease-in-out;
+    }
+}

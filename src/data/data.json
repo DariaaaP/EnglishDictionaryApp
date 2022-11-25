@@ -1,0 +1,14 @@
+[
+    {"english":"dog","transcription":"[dɒg]","russian":"собака","tags":"животные"},
+    {"english":"cat","transcription":"[kæt]","russian":"кошка","tags":"животные"},
+    {"english":"corn","transcription":"[kɔːrn]","russian":"кукуруза","tags":"овощи"},
+    {"english":"butterfly ","transcription":"[ˈbʌtərflaɪ]","russian":"бабочка","tags":"насекомое"},
+    {"english":"hedgehog","transcription":"[ˈhedʒ.hɒɡ]","russian":"ежик","tags":"животные"},
+    {"english":"kid","transcription":"[kid]","russian":"ребенок","tags":"семья"},
+    {"english":"mother","transcription":"[ ˈmʌð.ə r] ","russian":"мать","tags":"семья"},
+    {"english":"father","transcription":"[ ˈfɑː.ðə r] ","russian":"отец","tags":"семья"},
+    {"english":"family","transcription":"[ ˈfæm. ə l.i ]","russian":"семья","tags":"семья"},
+    {"english":"accelerator","transcription":"[ əkˈseləreɪtə ]","russian":"акселератор","tags":"автомобиль"},
+    {"english":"brake","transcription":"[ breɪk ]","russian":"тормоз","tags":"автомобиль"},
+    {"english":"brake fluid","transcription":"[ breɪk ˈfluːɪd ]","russian":"тормозная жидкость","tags":"автомобиль"}
+]

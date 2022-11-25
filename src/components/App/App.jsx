@@ -1,9 +1,11 @@
-import './../style/App.css';
+import ListWords from './../ListWords/ListWords.jsx';
+import Header from '../Header/Header.jsx';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello, World!</h1>
+      <Header />
+      <ListWords />
     </div>
   );
 }
