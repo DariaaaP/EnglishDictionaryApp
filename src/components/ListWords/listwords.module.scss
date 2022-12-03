@@ -11,13 +11,13 @@
     border: 1px solid $border-color-table;
 
     &__word {
-        padding: 20px;
+        // padding: 5%;
 
         color: $font-color;
     }
 
     &__title {
-        padding: 20px;
+        padding: 2%;
 
         font-weight: bolder;
         color: $main-color;
@@ -26,6 +26,7 @@
     &__string {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 2%;
 
         border-bottom: 1px dotted $border-color-table;
 

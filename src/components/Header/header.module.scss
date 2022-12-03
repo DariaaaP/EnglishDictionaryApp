@@ -26,16 +26,17 @@
 .nav {
     width: 75%;
     display: flex;
-    justify-content: space-between;
-}
-
-.links {
-    width: 100%;
-    display: flex;
     justify-content: space-around;
 }
 
-ul {
-    list-style: none;
+.menu {
+    display: flex;
+    justify-content: space-around;
+
     text-decoration: none;
+    color: $font-color-second;
+
+    &:hover {
+        color: $font-color;
+    }
 }

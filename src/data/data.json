@@ -1,14 +1,14 @@
 [
-    {"english":"dog","transcription":"[dɒg]","russian":"собака","tags":"животные"},
-    {"english":"cat","transcription":"[kæt]","russian":"кошка","tags":"животные"},
-    {"english":"corn","transcription":"[kɔːrn]","russian":"кукуруза","tags":"овощи"},
-    {"english":"butterfly ","transcription":"[ˈbʌtərflaɪ]","russian":"бабочка","tags":"насекомое"},
-    {"english":"hedgehog","transcription":"[ˈhedʒ.hɒɡ]","russian":"ежик","tags":"животные"},
-    {"english":"kid","transcription":"[kid]","russian":"ребенок","tags":"семья"},
-    {"english":"mother","transcription":"[ ˈmʌð.ə r] ","russian":"мать","tags":"семья"},
-    {"english":"father","transcription":"[ ˈfɑː.ðə r] ","russian":"отец","tags":"семья"},
-    {"english":"family","transcription":"[ ˈfæm. ə l.i ]","russian":"семья","tags":"семья"},
-    {"english":"accelerator","transcription":"[ əkˈseləreɪtə ]","russian":"акселератор","tags":"автомобиль"},
-    {"english":"brake","transcription":"[ breɪk ]","russian":"тормоз","tags":"автомобиль"},
-    {"english":"brake fluid","transcription":"[ breɪk ˈfluːɪd ]","russian":"тормозная жидкость","tags":"автомобиль"}
+    {"english":"dog","transcription":"[dɒg]","russian":"собака","tags":"животные", "id": "0"},
+    {"english":"cat","transcription":"[kæt]","russian":"кошка","tags":"животные", "id": "1"},
+    {"english":"corn","transcription":"[kɔːrn]","russian":"кукуруза","tags":"овощи", "id": "2"},
+    {"english":"butterfly ","transcription":"[ˈbʌtərflaɪ]","russian":"бабочка","tags":"насекомое", "id": "3"},
+    {"english":"hedgehog","transcription":"[ˈhedʒ.hɒɡ]","russian":"ежик","tags":"животные", "id": "4"},
+    {"english":"kid","transcription":"[kid]","russian":"ребенок","tags":"семья", "id": "5"},
+    {"english":"mother","transcription":"[ ˈmʌð.ə r] ","russian":"мать","tags":"семья", "id": "6"},
+    {"english":"father","transcription":"[ ˈfɑː.ðə r] ","russian":"отец","tags":"семья", "id": "7"},
+    {"english":"family","transcription":"[ ˈfæm. ə l.i ]","russian":"семья","tags":"семья", "id": "8"},
+    {"english":"accelerator","transcription":"[ əkˈseləreɪtə ]","russian":"акселератор","tags":"автомобиль", "id": "9"},
+    {"english":"brake","transcription":"[ breɪk ]","russian":"тормоз","tags":"автомобиль", "id": "10"},
+    {"english":"brake fluid","transcription":"[ breɪk ˈfluːɪd ]","russian":"тормозная жидкость","tags":"автомобиль", "id": "11"}
 ]
