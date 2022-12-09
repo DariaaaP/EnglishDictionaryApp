@@ -14,10 +14,10 @@ function Card(props) {
     return (
         <div className={style.card}>
             <div className={style.about}>
-                <div className={style.title}>{props.englishWord}</div>
+                <div className={style.title}>{props.english}</div>
                 <div className={style.transcription}>{props.transcription}</div>
             </div>
-            {isPressed ? <div className={style.translate}> {props.translate} </div> : <Button onButtonClick={onButtonClick} class={styleBtn.btn} text='Translate' />
+            {isPressed ? <div className={style.translate}> {props.russian} </div> : <Button onButtonClick={onButtonClick} class={styleBtn.btn} text='Translate' />
             }
         </div>
     );
