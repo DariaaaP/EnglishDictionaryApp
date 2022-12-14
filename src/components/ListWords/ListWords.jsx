@@ -10,6 +10,8 @@ import Input from '../Input/Input.jsx';
 function ListWords() {
     const [isEdit, setIsEdit] = useState();
 
+    const returnState = () => setIsEdit(!isEdit);
+
 
     return (
         <div className={style.table}>
@@ -25,7 +27,7 @@ function ListWords() {
                     <div className={style.table__word}>{isEdit === index ? <Input value={item.russian} /> : item.russian}</div>
                     <div className={style.buttons}>
                         {isEdit === index ? <Button class={styleBtn.btn} onButtonClick={setIsEdit} text='Save' number={index} /> : <Button class={styleBtn.btn} onButtonClick={setIsEdit} text='Edit' number={index} />}
-                        {isEdit === index ? <Button class={styleBtn.btn} onButtonClick={() => setIsEdit(!isEdit)} number={index} text='X' /> : <Button class={styleBtn.btn} onButtonClick="" text='X' />}
+                        {isEdit === index ? <Button class={styleBtn.btn} onButtonClick={returnState} number={index} text='X' /> : <Button class={styleBtn.btn} onButtonClick="" text='X' />}
                     </div>
                 </div>
             )}
