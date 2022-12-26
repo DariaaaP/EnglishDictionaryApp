@@ -13,9 +13,9 @@ function Header() {
                         <div>Dictionary App</div>
                     </div>
                 </NavLink>
-                <NavLink to='/' className={activeClass}>Home</NavLink>
-                <NavLink to='list' className={activeClass}>Words</NavLink>
-                <NavLink to='/testwords' className={activeClass}>Game</NavLink>
+                <NavLink end to='/' className={activeClass}>Home</NavLink>
+                <NavLink end to='list' className={activeClass}>Words</NavLink>
+                <NavLink end to='/testwords' className={activeClass}>Game</NavLink>
             </div>
         </div>
     );
