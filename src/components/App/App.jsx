@@ -11,16 +11,13 @@ import {
 function App() {
   return (
     <div className="App">
-      {/* <Router> */}
       <Header />
-
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/list' element={<ListWords />} />
         <Route path='/testwords' element={<TestWords />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      {/* </Router> */}
     </div >
   );
 }
