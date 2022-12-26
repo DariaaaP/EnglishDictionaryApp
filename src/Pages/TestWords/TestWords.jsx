@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Card from '../Card/Card.jsx';
-import Button from '../Button/Button.jsx';
-import datas from './../../data/data.json';
+import Card from '../../components/Card/Card.jsx';
+import Button from '../../components/Button/Button.jsx';
+import datas from '../../data/data.json';
 import style from "./testwords.module.scss";
-import styleBtn from "./../Button/button.module.scss";
+import styleBtn from "../../components/Button/button.module.scss";
 
 function TestWords() {
     const [countIndex, setCountIndex] = useState(1);

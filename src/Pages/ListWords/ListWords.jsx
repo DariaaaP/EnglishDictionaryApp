@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-import datas from './../../data/data.json';
+import datas from '../../data/data.json';
 import style from './listwords.module.scss';
-import styleBtn from './../Button/button.module.scss'
-import Button from '../Button/Button.jsx';
-import Input from '../Input/Input.jsx';
+import styleBtn from '../../components/Button/button.module.scss'
+import Button from '../../components/Button/Button.jsx';
+import Input from '../../components/Input/Input.jsx';
 
 
 function ListWords() {

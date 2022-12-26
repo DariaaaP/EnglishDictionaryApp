@@ -1,8 +1,5 @@
-import Header from '../Header/Header.jsx';
-import ListWords from "../ListWords/ListWords.jsx";
-import TestWords from "../TestWords/TestWords.jsx";
-import MainPage from "../Mainpage/MainPage.jsx";
-import NotFoundPage from "../NotFoundPage/NotFoundPage.jsx";
+import Header from '../../components/Header/Header.jsx';
+import { NotFoundPage, ListWords, MainPage, TestWords } from '..'
 import {
   Routes,
   Route
