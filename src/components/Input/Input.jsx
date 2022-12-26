@@ -1,16 +1,8 @@
-import { useState } from 'react';
+import style from './input.module.scss';
 
 function Input(props) {
-
-    const [isChanged, setIsChanged] = useState(false);
-
-    function onInputChange() {
-        setIsChanged(!isChanged);
-        console.log("Поле меняется");
-    }
-
     return (
-        <input className="input" type="text" defaultValue={props.value} onChange={onInputChange} />
+        <input className={style.input} type="text" defaultValue={props.value} onChange={props.function} />
     );
 }
 

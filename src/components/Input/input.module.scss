@@ -1,0 +1,15 @@
+@import './../../style/vars.scss';
+
+.input {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2%;
+
+    border-radius: 5px;
+
+    &:focus {
+        border-color: $bg-color-table;
+        outline: 0;
+        box-shadow: 0 0 0.2rem 0.2rem $main-color-light;
+    }
+}

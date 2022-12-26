@@ -1,17 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 
 import datas from '../../data/data.json';
 import style from './listwords.module.scss';
 import styleBtn from '../../components/Button/button.module.scss'
 import Button from '../../components/Button/Button.jsx';
-import Input from '../../components/Input/Input.jsx';
+import Word from '../../components/Word/Word';
 
 
 function ListWords() {
-    const [isEdit, setIsEdit] = useState();
+    const [words, setWords] = useState([]);
 
-    const returnState = () => setIsEdit(!isEdit);
+    useEffect(() => {
+        setWords(datas)
+    }, [])
 
+    function editWords(id, english, transcription, russian) {
+        const copyWords = [...words];
+        const resultWords = copyWords.map(item => {
+            if (item.id === id) {
+                item.english = english
+                item.transcription = transcription
+                item.russian = russian
+                return item
+            }
+            return item
+        })
+        setWords(resultWords)
+    }
+
+    if (!words) {
+        return <h1>Loading...</h1>
+    }
 
     return (
         <div className={style.table}>
@@ -20,19 +39,13 @@ function ListWords() {
                 <div className={style.table__title}>Transcription</div>
                 <div className={style.table__title}>Translate</div>
             </div>
-            {datas.map((item, index) =>
-                <div className={style.table__string} key={index} number={index}>
-                    <div className={style.table__word}>{isEdit === index ? <Input value={item.english} /> : item.english}</div>
-                    <div className={style.table__word}>{isEdit === index ? <Input value={item.transcription} /> : item.transcription}</div>
-                    <div className={style.table__word}>{isEdit === index ? <Input value={item.russian} /> : item.russian}</div>
-                    <div className={style.buttons}>
-                        {isEdit === index ? <Button class={styleBtn.btn} onButtonClick={setIsEdit} text='Save' number={index} /> : <Button class={styleBtn.btn} onButtonClick={setIsEdit} text='Edit' number={index} />}
-                        {isEdit === index ? <Button class={styleBtn.btn} onButtonClick={returnState} number={index} text='X' /> : <Button class={styleBtn.btn} onButtonClick="" text='X' />}
-                    </div>
-                </div>
-            )}
+            {
+                words.map((item) =>
+                    <Word key={item.id} items={item} editWords={editWords}></Word>)
+            }
             <Button class={styleBtn.btn_add} text='New word' />
         </div>
+
     );
 }
 
