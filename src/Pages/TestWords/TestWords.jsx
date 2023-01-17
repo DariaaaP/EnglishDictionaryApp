@@ -7,12 +7,14 @@ import styleBtn from "../../components/Button/button.module.scss";
 
 function TestWords() {
     const [countIndex, setCountIndex] = useState(1);
+    const [openTranslate, setOpenTranslate] = useState([]);
+    const [click, setClick] = useState(0);
 
     const nextCard = () => {
         if (countIndex !== datas.length) {
             setCountIndex(countIndex + 1)
         } else if (countIndex === datas.length) {
-            setCountIndex(1)
+            setCountIndex(1);
         }
     }
 
@@ -24,13 +26,30 @@ function TestWords() {
         }
     }
 
+    const countLearnWords = (id) => () => {
+        setOpenTranslate(openTranslate => [...openTranslate, id]);
+        setClick(click => click + 1);
+    }
+
+
+    const handleRestart = () => {
+        setOpenTranslate([]);
+        setClick(0);
+    }
+
 
     const words = datas.map((item) => {
+        let isOpened = false;
+        if (openTranslate.includes(item.id)) {
+            isOpened = true;
+        }
         return (
             <Card
                 key={item.id}
                 id={item.id}
                 {...item}
+                countWords={countLearnWords}
+                isOpened={isOpened}
             />
         )
     })
@@ -43,6 +62,13 @@ function TestWords() {
             </div>
             <div className={style.CountCards}>
                 <span className={style.NowCount}>{countIndex}</span>/{words.length}
+            </div>
+            <div className={style.CountCards}>
+                {(click === words.length) ? <span className={style.NowCount}>Вы изучили все слова!</span> : <p>Изучено слов: <span className={style.NowCount}>{click}</span></p>
+                }
+            </div>
+            <div className={style.CountCards}>
+                <Button class={styleBtn.btn_add} text='Again' onButtonClick={handleRestart} />
             </div>
         </div>
     );
