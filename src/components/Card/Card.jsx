@@ -1,15 +1,28 @@
+import { useEffect, useRef } from "react";
 import Button from "../Button/Button.jsx";
 import styleBtn from "./../Button/button.module.scss";
 import style from "./card.module.scss";
 
 function Card(props) {
+    const { id, english, russian, transcription, countWords, isOpened, isActive } = props;
+
+    const ref = useRef();
+
+    useEffect(() => {
+        console.log('isActive', isActive, id)
+        if (isActive && ref.current) {
+            ref.current.focus();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isActive]);
+
     return (
         <div className={style.card}>
             <div className={style.about}>
-                <div className={style.title}>{props.english}</div>
-                <div className={style.transcription}>{props.transcription}</div>
+                <div className={style.title}>{english}</div>
+                <div className={style.transcription}>{transcription}</div>
             </div>
-            {props.isOpened ? <div className={style.translate}> {props.russian} </div> : <Button onButtonClick={props.countWords(props.id)} class={styleBtn.btn} text='Translate' />
+            {isOpened ? <div className={style.translate}> {russian}</div> : <Button onButtonClick={countWords(id)} class={styleBtn.btn} text='Translate' refs={ref} />
             }
         </div>
     );
