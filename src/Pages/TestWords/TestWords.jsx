@@ -10,6 +10,7 @@ function TestWords() {
     const [openTranslate, setOpenTranslate] = useState([]);
     const [click, setClick] = useState(0);
 
+
     const nextCard = () => {
         if (countIndex !== datas.length) {
             setCountIndex(countIndex + 1)
@@ -38,7 +39,7 @@ function TestWords() {
     }
 
 
-    const words = datas.map((item) => {
+    const words = datas.map((item, idx) => {
         let isOpened = false;
         if (openTranslate.includes(item.id)) {
             isOpened = true;
@@ -50,6 +51,7 @@ function TestWords() {
                 {...item}
                 countWords={countLearnWords}
                 isOpened={isOpened}
+                isActive={(idx + 1) === countIndex}
             />
         )
     })

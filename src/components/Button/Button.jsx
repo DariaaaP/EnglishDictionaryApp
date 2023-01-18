@@ -1,5 +1,4 @@
 function Button(props) {
-
     function onClick() {
         if (props.onButtonClick !== "") {
             props.onButtonClick(props.number);
@@ -7,7 +6,7 @@ function Button(props) {
     }
 
     return (
-        <button ref={props.ref} onClick={onClick} className={props.class}>{props.text}</button>
+        <button ref={props.refs} onClick={onClick} className={props.class}>{props.text}</button>
     );
 }
 
