@@ -24,6 +24,22 @@
 
         color: $bg-color-btn;
     }
+
+    &:hover:disabled {
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    &:disabled {
+        background: transparent;
+        box-shadow: none;
+        transform: none;
+
+        color: $font-color-second;
+
+        cursor: auto;
+    }
 }
 
 .btn_add {
@@ -76,7 +92,7 @@
     cursor: pointer;
 
     img {
-        width: 50%;
+        width: 65%;
         transition: .1s ease-in-out;
     }
 

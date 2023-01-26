@@ -6,7 +6,7 @@ function Button(props) {
     }
 
     return (
-        <button ref={props.refs} onClick={onClick} className={props.class}>{props.text}</button>
+        <button ref={props.refs} onClick={onClick} className={props.class} disabled={props.disabled}>{props.text}</button>
     );
 }
 

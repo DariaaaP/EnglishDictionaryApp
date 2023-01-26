@@ -1,6 +1,7 @@
 @import './../../style/vars.scss';
 
-.input {
+.input,
+.warning {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 2%;
@@ -12,4 +13,9 @@
         outline: 0;
         box-shadow: 0 0 0.2rem 0.2rem $main-color-light;
     }
+}
+
+.warning {
+    border-color: $border-warning;
+    box-shadow: 0 0 0.3rem 0.05rem $border-warning-second;
 }

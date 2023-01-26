@@ -11,7 +11,6 @@
     border: 1px solid $border-color-table;
 
     &__word {
-        // padding: 5%;
 
         color: $font-color;
     }
@@ -21,6 +20,29 @@
 
         font-weight: bolder;
         color: $main-color;
+    }
+
+    &__error {
+        padding: 1%;
+        margin: 1%;
+        background: radial-gradient(circle, rgba(255, 118, 152, 1) 0%, rgba(227, 154, 113, 1) 100%);
+        color: $font-color-second;
+
+        border: 2px solid $border-warning;
+        text-align: center;
+
+        .warning {
+            color: $border-warning;
+        }
+
+        .context {
+            color: $font-color;
+            text-decoration: underline;
+        }
+
+        div {
+            margin: 1%;
+        }
     }
 
     &__string {

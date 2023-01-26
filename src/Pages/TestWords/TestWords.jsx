@@ -58,9 +58,9 @@ function TestWords() {
     return (
         <div className={style.container}>
             <div className={style.MainInfo}>
-                <Button onButtonClick={prevCard} class={styleBtn.btnImg} text={<img className={styleBtn.prevArrow} src="/assets/left.png" alt="left" />} />
+                <Button onButtonClick={prevCard} class={styleBtn.btnImg} text={<img className={styleBtn.prevArrow} src="/assets/arrow2.png" alt="left" />} />
                 {words[countIndex - 1]}
-                <Button onButtonClick={nextCard} class={styleBtn.btnImg} text={<img className={styleBtn.nextArrow} src="/assets/right.png" alt="right" />} />
+                <Button onButtonClick={nextCard} class={styleBtn.btnImg} text={<img className={styleBtn.nextArrow} src="/assets/arrow.png" alt="right" />} />
             </div>
             <div className={style.CountCards}>
                 <span className={style.NowCount}>{countIndex}</span>/{words.length}
