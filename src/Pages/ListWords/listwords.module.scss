@@ -25,10 +25,11 @@
     &__error {
         padding: 1%;
         margin: 1%;
-        background: radial-gradient(circle, rgba(255, 118, 152, 1) 0%, rgba(227, 154, 113, 1) 100%);
-        color: $font-color-second;
 
+        background: radial-gradient(circle, rgba(255, 118, 152, 1) 0%, rgba(227, 154, 113, 1) 100%);
         border: 2px solid $border-warning;
+
+        color: $font-color-second;
         text-align: center;
 
         .warning {
