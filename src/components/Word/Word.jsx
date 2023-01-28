@@ -54,7 +54,7 @@ function Word({ items, editWords }) {
                 break;
 
             case 'translation':
-                (e.target.value === "" || num.test(e.target.value)) ? setWarningTranslation(true) : setWarningTranslation(false);
+                (e.target.value === "" || num.test(e.target.value) || !(ru.test(e.target.value))) ? setWarningTranslation(true) : setWarningTranslation(false);
                 break;
         }
     }
@@ -91,7 +91,7 @@ function Word({ items, editWords }) {
 
                 {(warningTranscription) && <div><span className={style.warning}>Warning! </span>Поле <span className={style.context}>Transcription</span> не должно быть пустым, содержать цифры и русские буквы</div>}
 
-                {(warningTranslation) && <div><span className={style.warning}>Warning! </span>Поле <span className={style.context}>Translate</span> не должны быть пустым и содержать цифры</div>}
+                {(warningTranslation) && <div><span className={style.warning}>Warning! </span>Поле <span className={style.context}>Translate</span> не должны быть пустым, содержать цифры или буквы латиницы</div>}
             </div>}
             <div className={style.table__string}>
                 <div className={style.table__word}>{isEdit ? <Input class={(warningEnglish) && 'red'} bluer={e => blurHandler(e)} value={valueWord} function={handleClickWord} name="english" /> : english}</div>
