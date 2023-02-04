@@ -1,9 +1,10 @@
 import Header from '../../components/Header/Header.jsx';
-import { NotFoundPage, ListWords, MainPage, TestWords } from '..'
+import { NotFoundPage, MainPage, GamePage, TablePage } from '..'
 import {
   Routes,
   Route
 } from "react-router-dom";
+
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<MainPage />} />
-        <Route path='/list' element={<ListWords />} />
-        <Route path='/testwords' element={<TestWords />} />
+        <Route path='/list' element={<TablePage />} />
+        <Route path='/testwords' element={<GamePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div >

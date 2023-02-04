@@ -1,20 +1,16 @@
 import { useContext } from 'react';
 import { Context } from '../../Context/Context.jsx';
-import Preloader from '../../components/Preloader/Preloader.jsx';
+import GameCards from '../../components/GameCards/GameCards.jsx';
 import Errors from '../../components/Errors/Errors.jsx';
 
-import style from "./mainpage.module.scss";
+import Preloader from '../../components/Preloader/Preloader.jsx';
 
-function MainPage() {
-
+const GamePage = () => {
     const { loading, errors } = useContext(Context);
 
     const preloading = loading ? <Preloader /> : null;
     const error = errors ? <Errors /> : null;
-    const content = !(loading || errors) ? (<div className={style.container}>
-        <h1>Welcome to English Dictionary App</h1>
-        <img src="assets/dict.webp" alt="dictionary_img" />
-    </div>) : null;
+    const content = !(loading || errors) ? <GameCards /> : null;
 
     return (
         <div>
@@ -25,4 +21,4 @@ function MainPage() {
     )
 }
 
-export default MainPage;
+export default GamePage;

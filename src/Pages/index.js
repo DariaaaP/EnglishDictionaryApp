@@ -1,6 +1,7 @@
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
-import ListWords from "./ListWords/ListWords";
+import ListWords from "../components/TableWords/TableWords";
 import MainPage from "./Mainpage/MainPage";
-import TestWords from "./TestWords/TestWords";
+import GamePage from "./GamePage/GamePage"
+import TablePage from './TablePage/TablePage.jsx';
 
-export {NotFoundPage, ListWords, MainPage, TestWords}
+export {NotFoundPage, ListWords, MainPage, GamePage, TablePage}
