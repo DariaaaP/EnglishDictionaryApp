@@ -1,22 +1,30 @@
 import Header from '../../components/Header/Header.jsx';
-import { NotFoundPage, ListWords, MainPage, TestWords } from '..'
+import { NotFoundPage, MainPage, GamePage, TablePage } from '..'
 import {
   Routes,
   Route
 } from "react-router-dom";
+import { observer, inject } from 'mobx-react';
+import { useEffect } from 'react';
 
-function App() {
+
+function App({ wordsStore }) {
+
+  useEffect(() => {
+    wordsStore.loadWords();
+  }, [wordsStore]);
+
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route path='/' element={<MainPage />} />
-        <Route path='/list' element={<ListWords />} />
-        <Route path='/testwords' element={<TestWords />} />
+        <Route path='/list' element={<TablePage />} />
+        <Route path='/testwords' element={<GamePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div >
   );
 }
 
-export default App;
+export default inject(['wordsStore'])(observer(App));
