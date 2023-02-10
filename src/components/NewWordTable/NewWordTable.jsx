@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState, useEffect } from 'react';
 import { observer, inject } from "mobx-react";
 
@@ -7,22 +8,30 @@ import Button from '../Button/Button.jsx';
 import Input from '../Input/Input.jsx';
 
 
-const Word = ({ wordsStore, item }) => {
+function NewWordTable({ onButtonClick, wordsStore }) {
+    const [word, setWord] = useState({
+        english: '',
+        transcription: '',
+        russian: '',
+    });
 
-    const [state, setState] = useState('');
-
-    useEffect(() => {
-        setState(item);
-    }, [item])
-
-    const [isEdit, setIsEdit] = useState(false);
     const [formValid, setFormValid] = useState(false);
+
+    const empty = !word.english || !word.transcription || !word.russian;
 
     const [warning, setWarning] = useState({
         englishInput: false,
         transcriptionInput: false,
         russianInput: false,
     })
+
+    useEffect(() => {
+        if (empty || warning.englishInput || warning.russianInput || warning.transcriptionInput) {
+            setFormValid(false);
+        } else {
+            setFormValid(true);
+        }
+    }, [empty, warning.englishInput, warning.russianInput, warning.transcriptionInput]);
 
     function Validation(e) {
         const ru = /^[а-яёА-ЯЁ]*$/ig;
@@ -53,50 +62,28 @@ const Word = ({ wordsStore, item }) => {
         }
     }
 
-    const clickChange = (e) => {
-        setState({
-            ...state,
+
+    const handleChange = e => {
+        setWord({
+            ...word,
             [e.target.name]: e.target.value
         });
         Validation(e);
     }
 
-    const returnState = () => setIsEdit(!isEdit);
-
-    const returnWarn = () => {
-        setWarning(false);
+    const ChangeStateButton = () => {
+        onButtonClick(false);
     }
 
-    useEffect(() => {
-        if (warning.englishInput || warning.russianInput || warning.transcriptionInput) {
-            setFormValid(false);
-        } else {
-            setFormValid(true);
-        }
-    }, [warning.englishInput, warning.russianInput, warning.transcriptionInput]);
-
-
-    const clickCancel = () => {
-        returnState();
-        returnWarn();
-        setState({
-            ...item,
-        });
+    const SeveralFunction = () => {
+        ChangeStateButton();
+        wordsStore.addWords(word);
     }
 
-    const clickSave = () => {
-        wordsStore.editWords(state);
-        returnState(!isEdit);
-    };
-
-    const clickDelete = () => {
-        wordsStore.deleteWords(item.id);
-    };
 
     return (
         <>
             {(warning.englishInput || warning.russianInput || warning.transcriptionInput) && <div className={style.table__error}>
-
                 {(warning.englishInput) && <div><span className={style.warning}>Warning! </span>Поле <span className={style.context}>Words</span> не должно быть пустым, содержать цифры и русские буквы</div>}
 
                 {(warning.transcriptionInput) && <div><span className={style.warning}>Warning! </span>Поле <span className={style.context}>Transcription</span> не должно быть пустым, содержать цифры и русские буквы</div>}
@@ -104,19 +91,19 @@ const Word = ({ wordsStore, item }) => {
                 {(warning.russianInput) && <div><span className={style.warning}>Warning! </span>Поле <span className={style.context}>Translate</span> не должно быть пустым, содержать цифры или буквы латиницы</div>}
             </div>}
             <div className={style.table__string}>
-                <div className={style.table__word}>{isEdit ? <Input class={(warning.englishInput) && 'red'} value={state.english} function={clickChange} name="english" /> : item.english}</div>
+                <div className={style.table__word}><Input class={(warning.englishInput) && 'red'} value={word.english} function={handleChange} name="english" /></div>
 
-                <div className={style.table__word}>{isEdit ? <Input class={(warning.transcriptionInput) && 'red'} value={state.transcription} function={clickChange} name="transcription" /> : item.transcription}</div>
+                <div className={style.table__word}><Input class={(warning.transcriptionInput) && 'red'} value={word.transcription} function={handleChange} name="transcription" /></div>
 
-                <div className={style.table__word}>{isEdit ? <Input class={(warning.russianInput) && 'red'} value={state.russian} function={clickChange} name="russian" /> : item.russian}</div>
+                <div className={style.table__word}><Input class={(warning.russianInput) && 'red'} value={word.russian} function={handleChange} name="russian" /></div>
 
                 <div className={style.buttons}>
-                    {isEdit ? <Button class={styleBtn.btn} onButtonClick={clickSave} text='Save' disabled={!formValid} /> : <Button class={styleBtn.btn} onButtonClick={returnState} text='Edit' />}
-                    {isEdit ? <Button class={styleBtn.btn} onButtonClick={clickCancel} text='X' /> : <Button class={styleBtn.btn} onButtonClick={clickDelete} text='X' />}
+                    <Button class={styleBtn.btn} onButtonClick={SeveralFunction} disabled={!formValid} text='Save' />
                 </div>
             </div>
+            {empty && <label className={style.label}>* Please complete all fields</label>}
         </>
     );
 }
 
-export default inject(["wordsStore"])(observer(Word));
+export default inject(["wordsStore"])(observer(NewWordTable));

@@ -1,0 +1,23 @@
+@import "../../style/vars.scss";
+
+.container {
+    max-width: 80%;
+    margin: 50px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .message {
+        margin-top: 15px;
+
+        color: $border-color-table;
+        font-size: 1.7rem;
+    }
+
+    .warning {
+        color: $border-warning;
+        text-decoration: underline;
+    }
+}

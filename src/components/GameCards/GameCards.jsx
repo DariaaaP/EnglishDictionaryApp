@@ -1,20 +1,22 @@
 import { useState } from 'react';
-import Card from '../../components/Card/Card.jsx';
-import Button from '../../components/Button/Button.jsx';
-import datas from '../../data/data.json';
-import style from "./testwords.module.scss";
+import { observer, inject } from "mobx-react";
+
+import Card from '../Card/Card.jsx';
+import Button from '../Button/Button.jsx';
+import style from "./gamecards.module.scss";
 import styleBtn from "../../components/Button/button.module.scss";
 
-function TestWords() {
+function GameWords({ wordsStore }) {
+
     const [countIndex, setCountIndex] = useState(1);
     const [openTranslate, setOpenTranslate] = useState([]);
     const [click, setClick] = useState(0);
 
 
     const nextCard = () => {
-        if (countIndex !== datas.length) {
+        if (countIndex !== wordsStore.words.length) {
             setCountIndex(countIndex + 1)
-        } else if (countIndex === datas.length) {
+        } else if (countIndex === wordsStore.words.length) {
             setCountIndex(1);
         }
     }
@@ -23,7 +25,7 @@ function TestWords() {
         if (countIndex !== 1) {
             setCountIndex(countIndex - 1)
         } else if (countIndex === 1) {
-            setCountIndex(datas.length);
+            setCountIndex(wordsStore.words.length);
         }
     }
 
@@ -39,7 +41,7 @@ function TestWords() {
     }
 
 
-    const words = datas.map((item, idx) => {
+    const wordsdata = wordsStore.words.map((item, idx) => {
         let isOpened = false;
         if (openTranslate.includes(item.id)) {
             isOpened = true;
@@ -59,14 +61,14 @@ function TestWords() {
         <div className={style.container}>
             <div className={style.MainInfo}>
                 <Button onButtonClick={prevCard} class={styleBtn.btnImg} text={<img className={styleBtn.prevArrow} src="/assets/arrow2.png" alt="left" />} />
-                {words[countIndex - 1]}
+                {wordsdata[countIndex - 1]}
                 <Button onButtonClick={nextCard} class={styleBtn.btnImg} text={<img className={styleBtn.nextArrow} src="/assets/arrow.png" alt="right" />} />
             </div>
             <div className={style.CountCards}>
-                <span className={style.NowCount}>{countIndex}</span>/{words.length}
+                <span className={style.NowCount}>{countIndex}</span>/{wordsStore.words.length}
             </div>
             <div className={style.CountCards}>
-                {(click === words.length) ? <span className={style.NowCount}>Вы изучили все слова!</span> : <p>Изучено слов: <span className={style.NowCount}>{click}</span></p>
+                {(click === wordsdata.length) ? <span className={style.NowCount}>Вы изучили все слова!</span> : <p>Изучено слов: <span className={style.NowCount}>{click}</span></p>
                 }
             </div>
             <div className={style.CountCards}>
@@ -76,4 +78,4 @@ function TestWords() {
     );
 }
 
-export default TestWords;
+export default inject(["wordsStore"])(observer(GameWords));

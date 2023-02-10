@@ -1,18 +1,14 @@
 import { observer, inject } from 'mobx-react';
 
+import ListWords from '../../components/TableWords/TableWords.jsx';
 import Preloader from '../../components/Preloader/Preloader.jsx';
 import Errors from '../../components/Errors/Errors.jsx';
 
-import style from "./mainpage.module.scss";
-
-function MainPage({ wordsStore }) {
+const TablePage = ({ wordsStore }) => {
 
     const preloading = wordsStore.loading ? <Preloader /> : null;
     const error = wordsStore.errors ? <Errors /> : null;
-    const content = !(wordsStore.loading || wordsStore.errors) ? (<div className={style.container}>
-        <h1>Welcome to English Dictionary App</h1>
-        <img src="assets/dict.webp" alt="dictionary_img" />
-    </div>) : null;
+    const content = !(wordsStore.loading || wordsStore.errors) ? <ListWords /> : null;
 
     return (
         <div>
@@ -23,4 +19,4 @@ function MainPage({ wordsStore }) {
     )
 }
 
-export default inject(['wordsStore'])(observer(MainPage));
+export default inject(['wordsStore'])(observer(TablePage));

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { observer, inject } from "mobx-react";
 import Button from "../Button/Button.jsx";
 import styleBtn from "./../Button/button.module.scss";
 import style from "./card.module.scss";
@@ -9,7 +10,6 @@ function Card(props) {
     const ref = useRef();
 
     useEffect(() => {
-        console.log('isActive', isActive, id)
         if (isActive && ref.current) {
             ref.current.focus();
         }
@@ -28,4 +28,4 @@ function Card(props) {
     );
 }
 
-export default Card;
+export default inject(["wordsStore"])(observer(Card));
