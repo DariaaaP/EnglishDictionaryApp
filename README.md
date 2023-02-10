@@ -20,4 +20,4 @@ EnglishDictionaryApp — приложение для изучения иност
 + запустите в папке проекта: `npm start`
 + сервер доступен по адресу: http://localhost:3000
 
-***Технологии:*** CSS3, SASS, JavaScript, React, Router, JSON
+***Технологии:*** CSS3, SASS, JavaScript, React, Router, JSON, MobX
