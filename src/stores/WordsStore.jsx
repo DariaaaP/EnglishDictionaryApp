@@ -1,13 +1,7 @@
 import { makeAutoObservable } from 'mobx';
+import { ApiRequests } from '../ApiRequests/ApiRequests.jsx';
 
-const getWords = () =>
-    fetch(`/api/words`)
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            }
-        })
-        .then((response) => response);
+const apiRequests = new ApiRequests();
 
 export default class WordsStore {
     words = [];
@@ -22,7 +16,7 @@ export default class WordsStore {
     loadWords = async () => {
         try {
             this.loading = true;
-            const data = await getWords();
+            const data = await apiRequests.getWords();
             this.words = data;
         }
         catch (errors) {
@@ -36,12 +30,9 @@ export default class WordsStore {
 
     addWords = async (word) => {
         this.loading = true;
-        await fetch(`/api/words/add`, {
-            method: 'POST',
-            body: JSON.stringify(word),
-        })
+        await apiRequests.addWords(word)
             .then(() => {
-                getWords();
+                apiRequests.getWords();
             })
             .catch(() => {
                 this.errors = true;
@@ -56,11 +47,9 @@ export default class WordsStore {
         let isDelete = window.confirm("Вы точно хотите удалить это слово?");
         if (isDelete) {
             this.loading = true;
-            await fetch(`/api/words/${id}/delete`, {
-                method: 'POST'
-            })
+            await apiRequests.deleteWords(id)
                 .then(() => {
-                    getWords();
+                    apiRequests.getWords();
                 })
                 .catch(() => {
                     this.errors = true;
@@ -73,12 +62,9 @@ export default class WordsStore {
 
     editWords = async (word) => {
         this.loading = true;
-        await fetch(`/api/words/${word.id}/update`, {
-            method: 'POST',
-            body: JSON.stringify(word),
-        })
+        await apiRequests.editWords(word)
             .then(() => {
-                getWords();
+                apiRequests.getWords();
             })
             .catch(() => {
                 this.errors = true;
